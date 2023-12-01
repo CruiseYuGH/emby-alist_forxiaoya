@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-##echo "zx9876541" | sudo -S chmod 777 -R /volume1/docker/xiaoya_media/xiaoya/同步更新/
+
 from webdav3.client import Client
 import os
 import time
@@ -27,7 +27,7 @@ def list_files(client, path="/"):
                 break
 
     for _file in files:
-        full_path = os.path.join(path,_file)#f"{path}/{file}"
+        full_path = os.path.join(path,_file)
         if _file[-1] == '/':
             # 如果是目录，则递归获取该目录下的所有文件
             subdirectory_files = list_files(client, full_path)
@@ -99,7 +99,7 @@ if __name__ == "__main__":
                     try:
                         os.makedirs(os.path.dirname(strm_file_path), exist_ok=True)
                         with open(strm_file_path, "w", encoding='utf-8') as f:
-                            f.write('http://192.168.5.216:4567'+b.replace('/dav', '/d').replace(' ', '%20'))
+                            f.write('http://192.168.5.216:5678'+b.replace('/dav', '/d').replace(' ', '%20'))
                     except Exception as e:
                         print(f"{b.replace(webdav_url, '')}处理失败，错误信息: {e}")
             elif file_extension in ['.ASS', '.SRT', '.SSA']:
