@@ -3,9 +3,16 @@
 
 emby挂载alist媒体库
 
+例如：小雅alist 本地的IP+端口号 'http://192.168.5.216:5678/' 
+
 ## 一、前提
 配置好的Alist服务端和Emby服务端
+
+小雅 没配置请参考：https://xiaoyaliu.notion.site/xiaoya-docker-69404af849504fa5bcf9f2dd5ecaa75f
+或者B站去查看，小雅 emby 关键词就有教程
+
 Emby的strm文件应用参考：https://emby.media/support/articles/Strm-Files.html
+
 
 ## 二、总体思路
 我们需要获取Alist服务器上指定目录下的视频文件名称、路径、播放链接，然后在Emby媒体库路径下生成相同的路径、文件名（后缀改为strm，内容为播放链接）的文本文件，同时也可以把字幕文件一起复制过来。效果如下图：
