@@ -26,22 +26,22 @@ Alist文件
 ps：为了方便emby 能够获取root权限（高级设置中我们将UID和GID的用户数值修改为0，然后点击保存。（数字0代表root用户，如果介意的可以使用ssh工具登录群晖，在用户界面输入id即可获取对应用户的UID和GID值））
 ![Image text](https://github.com/CruiseYuGH/emby-alist_forxiaoya/blob/main/3.png)
 
-## 推荐使用 xiaoya_post.py post版本 速度效果优于webdav版本
+## 推荐使用 xiaoya_post.py post版本 速度效果优于webdav版本，且部分代码做了升级
 按需修改配置：
-webdav_url = 'http://192.168.5.216:4567'
-username = 'guest'
-password = 'guest_Api789'
+    webdav_url = 'http://192.168.5.216:4567'
+    username = 'guest'
+    password = 'guest_Api789'
 按需要修改下面位置信息
-# save_mulu 小雅网址下的相对路径
-# url_path 本地存储的绝对路径
-save_mulu = '/volume1/docker/xiaoya_media/xiaoya/同步更新/'
-url_path = "/电视剧/中国/同步更新中/"
+    save_mulu 小雅网址下的相对路径
+    url_path 本地存储的绝对路径
+    save_mulu = '/volume1/docker/xiaoya_media/xiaoya/同步更新/'
+    url_path = "/电视剧/中国/同步更新中/"
 
 按需求打开下面函数，主要是小雅网页并不稳定，可能昨天还存在的文件，今天就为空。明天又有了
-# 根据小雅的线上url 清理本地的视频文件
-#cleanup_unmatched_files(files,os.path.join(save_mulu))
-# 查看小雅本地的目录，不存在视频文件夹则删除
-#delete_directory_if_no_strm(os.path.join(save_mulu))
+    根据小雅的线上url 清理本地的视频文件
+    #cleanup_unmatched_files(files,os.path.join(save_mulu))
+    查看小雅本地的目录，不存在视频文件夹则删除
+    #delete_directory_if_no_strm(os.path.join(save_mulu))
 
 ## xiaoya.py webdav版本 速度慢
 ### 需要修改 webdav_url 为你对应的IP +端口号
