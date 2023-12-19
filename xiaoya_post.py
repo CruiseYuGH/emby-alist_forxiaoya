@@ -197,4 +197,4 @@ if alist_token:
                             f.write('http://192.168.5.216:4567/d'+b.replace(' ', '%20'))
                     except Exception as e:
                         print(f"{b.replace(webdav_url, '')}处理失败，错误信息: {e}")
-        sleep(30)
+        time.sleep(30)
