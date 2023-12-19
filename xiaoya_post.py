@@ -45,8 +45,8 @@ def get_files_list(url_input, alist_token,base_path="/"):
 
     response = requests.request("POST", url, headers=headers, data=payload)
     sleep_time = 1
-    while response.status_code != 200 or json.loads(response.content.decode('utf-8'))['message']=="无法显示目录下文件，请刷新重试: *************3":
-        time.sleep(sleep_time)
+    while response.status_code != 200 or "无法显示目录下文件，请刷新重试" in json.loads(response.content.decode('utf-8'))['message']:
+        time.sleep(sleep_time*0.2)
         sleep_time +=1
         response = requests.request("POST", url, headers=headers, data=payload)
         print(f"Failed to retrieve files. Error: {base_path}")
@@ -197,3 +197,4 @@ if alist_token:
                             f.write('http://192.168.5.216:4567/d'+b.replace(' ', '%20'))
                     except Exception as e:
                         print(f"{b.replace(webdav_url, '')}处理失败，错误信息: {e}")
+        sleep(30)
